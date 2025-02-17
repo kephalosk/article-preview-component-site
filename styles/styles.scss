@@ -167,7 +167,7 @@ h1, p {
   column-gap: $space-16px;
 }
 
-#cardContentBarButton {
+.cardContentBarButton {
   border: 0;
   border-radius: 100%;
   padding: $space-2px $space-4px 0 $space-4px;
@@ -200,10 +200,13 @@ h1, p {
   align-items: center;
   column-gap: $space-24px;
   position: absolute;
-  transform: translate(160px, -75px);
+  right: -60px;
+  transform: translateY(-75px);
 
   &.active {
-    display: flex;
+    @include tablet-and-up {
+      display: flex;
+    }
   }
 }
 
@@ -214,10 +217,13 @@ h1, p {
   background-color: $color-grey-900;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
   position: absolute;
-  transform: translate(283px, -40px);
+  right: 37px;
+  transform: translateY(-40px);
 
   &.active {
-    display: flex;
+    @include tablet-and-up {
+      display: flex;
+    }
   }
 }
 

@@ -6,33 +6,58 @@
         <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
         <title>Article Preview Component | by kephalosk</title>
         <link href="https://fonts.googleapis.com/css2?family=Manrope+Bold:wght@500;700&display=swap" rel="stylesheet">
-        <style>
-            .attribution {
-                font-size: 11px;
-                text-align: center;
-            }
-            .attribution a {
-                color: hsl(228, 45%, 44%);
-            }
-        </style>
+        <link rel="stylesheet" href="styles/styles.css">
     </head>
     <body>
-        <main id="app"></main>
-        <footer class="attribution">
+        <main id="app">
+            <section id="card">
+                <img id="cardImage" src="./images/drawers.jpg" alt="furniture image" aria-hidden="true" />
+                <div id="cardContent">
+                    <h1 id="cardContentTitle">
+                        Shift the overall look and feel by adding these wonderful
+                        touches to furniture in your home
+                    </h1>
+                    <p id="cardContentText">
+                        Ever been in a room and felt like something was missing? Perhaps
+                        it felt slightly bare and uninviting. I’ve got some simple tips
+                        to help you make any room feel complete.
+                    </p>
+                    <div id="cardContentBar">
+                        <img id="cardContentBarImage" src="images/avatar-michelle.jpg" alt="avatar image" aria-hidden="true" />
+                        <div id="cardContentBarInfo">
+                            <label id="cardContentBarInfoName">Michelle Appleton</label>
+                            <label id="cardContentBarInfoDate">28 Jun 2020</label>
+                        </div>
+                        <button id="cardContentBarButton" class="buttonBright">
+                            <img id="#cardContentBarButtonIcon" src="images/icon-share.svg" alt="avatar image" aria-hidden="true" />
+                        </button>
+                        <div class="cardContentBarButtonOverlay">
+                            <label id="cardContentOverlayText">Share</label>
+                            <div id="cardContentOverlayIcons">
+                                <img class="overlayIcon" src="images/icon-facebook.svg" alt="facebook icon" aria-hidden="false" />
+                                <img class="overlayIcon" src="images/icon-twitter.svg" alt="twitter icon" aria-hidden="false" />
+                                <img class="overlayIcon" src="images/icon-pinterest.svg" alt="pinterest icon" aria-hidden="false" />
+                            </div>
+                        </div>
+                        <div class="cardContentBarButtonOverlayTriangle"></div>
+                    </div>
+                    <div class="cardContentOverlay">
+                        <label id="cardContentOverlayText">Share</label>
+                        <div id="cardContentOverlayIcons">
+                            <img class="overlayIcon" src="images/icon-facebook.svg" alt="facebook icon" aria-hidden="false" />
+                            <img class="overlayIcon" src="images/icon-twitter.svg" alt="twitter icon" aria-hidden="false" />
+                            <img class="overlayIcon" src="images/icon-pinterest.svg" alt="pinterest icon" aria-hidden="false" />
+                        </div>
+                        <button id="cardContentBarButton" class="buttonDark">
+                            <img class="invert" src="images/icon-share.svg" alt="share icon" aria-hidden="false" />
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer id="attribution">
             Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
             Coded by <a href="https://github.com/kephalosk/">kephalosk</a>
         </footer>
     </body>
 </html>
-
-<!--  Shift the overall look and feel by adding these wonderful -->
-<!--  touches to furniture in your home-->
-
-<!--  Ever been in a room and felt like something was missing? Perhaps -->
-<!--  it felt slightly bare and uninviting. I’ve got some simple tips -->
-<!--  to help you make any room feel complete.-->
-
-<!--  Michelle Appleton-->
-<!--  28 Jun 2020-->
-
-<!--  Share-->

@@ -6,8 +6,10 @@ $color-grey-500: #6E8098;
 $color-grey-400: #9DAEC2;
 $color-grey-200: #ECF2F8;
 
+$space-2px: functions.to-rem(2px);
 $space-4px: functions.to-rem(4px);
 $space-16px: functions.to-rem(16px);
+$space-20px: functions.to-rem(20px);
 $space-24px: functions.to-rem(24px);
 $space-32px: functions.to-rem(32px);
 $space-40px: functions.to-rem(40px);
@@ -73,6 +75,7 @@ $max-content-width: functions.to-rem(730px);
 
 body {
   background-color: $color-grey-200;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,108 +87,159 @@ h1, p {
 }
 
 #app {
+  padding: $space-64px $space-24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include tablet-and-up {
+    padding: $space-64px $space-64px;
+  }
 }
 
-.card {
+#attribution {
+  font-size: 11px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+#attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.buttonBright {
+  background-color: $color-grey-200;
+}
+
+.buttonDark {
+  background-color: $color-grey-500;
+}
+
+#buttonContainer {
+  position: relative;
+}
+
+#card {
   box-shadow: 0 20px 60px -30px rgb($color-grey-900, 0.8);
   border-radius: $radius-10px;
   max-width: $max-content-width;
   display: grid;
-  grid-template-rows: fit-content(100%) fit-content(100%);
+  grid-template-rows: 200px fit-content(100%);
   grid-template-columns: 1fr;
-  align-items: stretch;
-  overflow: hidden;
+
+  @include tablet-and-up {
+    grid-template-rows: 1fr;
+    grid-template-columns: 40% 60%;
+    align-items: stretch;
+  }
 }
 
-.cardImage {
+#cardImage {
   border-radius: $radius-10px $radius-10px 0 0;
-  height: 100%;
+  width: 100%;
+
+  @include tablet-and-up {
+    border-radius: $radius-10px 0 0 $radius-10px;
+  }
 }
 
-.cardContent {
+#cardContent {
   border-radius: 0 0 $radius-10px $radius-10px;
   background-color: $color-white;
-  padding: $space-32px;
+  padding: $space-32px $space-32px $space-16px $space-32px;
   display: flex;
   flex-direction: column;
-  row-gap: $space-24px;
+  row-gap: $space-32px;
   position: relative;
+
+  @include tablet-and-up {
+    border-radius: 0 $radius-10px $radius-10px 0;
+    padding: $space-32px;
+  }
 }
 
-.cardContentBar {
+#cardContentBar {
   display: flex;
   flex-direction: row;
   align-items: center;
+  column-gap: $space-16px;
 }
 
-.cardContentBarButton {
+#cardContentBarButton {
+  border: 0;
+  border-radius: 100%;
+  padding: $space-2px $space-4px 0 $space-4px;
   height: functions.to-rem(32px);
   width: functions.to-rem(32px);
   position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in, filter 0.2s ease-in;
+
+  &:hover {
+    background-color: $color-grey-400;
+  }
+
+  &.active {
+    background-color: $color-grey-900;
+  }
 }
-.cardContentBarButton.invert {
-  filter: invert(100%);
+
+.buttonActive {
+    filter: invert(100%) brightness(1000%);
 }
 
 .cardContentBarButtonOverlay {
   border-radius: $radius-10px;
   background-color: $color-grey-900;
   padding: $space-16px $space-32px;
-  width: 100%;
-  display: flex;
+  width: 240px;
+  display: none;
   flex-direction: row;
   align-items: center;
   column-gap: $space-24px;
   position: absolute;
-  bottom: 0;
-  left: 0;
-}
+  transform: translate(160px, -75px);
 
-.cardContentBarButtonOverlay {
-  border-radius: $radius-10px;
-  background-color: $color-grey-900;
-  padding: $space-16px $space-32px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  column-gap: $space-24px;
-  position: absolute;
-  transform: translate(50%, calc(50% - 100px));
+  &.active {
+    display: flex;
+  }
 }
 
 .cardContentBarButtonOverlayTriangle {
-  width: 100px;
-  height: 100px;
+  width: 20px;
+  height: 20px;
+  display: none;
   background-color: $color-grey-900;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
   position: absolute;
+  transform: translate(283px, -40px);
+
+  &.active {
+    display: flex;
+  }
 }
 
-.cardContentBarImage {
+#cardContentBarImage {
   border-radius: 100%;
   height: functions.to-rem(40px);
   width: functions.to-rem(40px);
 }
 
-.cardContentBarInfo {
+#cardContentBarInfo {
   display: flex;
   flex-direction: column;
-  row-gap: $space-4px;
   flex-grow: 1;
 }
 
-.cardContentBarInfoDate {
+#cardContentBarInfoDate {
   color: $color-grey-400;
 
   @include text-preset-2;
 }
 
-.cardContentBarInfoName {
+#cardContentBarInfoName {
   color: $color-grey-900;
 
   @include text-preset-2-bold;
@@ -194,39 +248,63 @@ h1, p {
 .cardContentOverlay {
   border-radius: 0 0 $radius-10px $radius-10px;
   background-color: $color-grey-900;
-  padding: $space-32px;
+  padding: $space-20px $space-32px;
   width: 100%;
-  display: flex;
+  bottom: 0;
+  left: 0;
+  display: none;
   flex-direction: row;
   align-items: center;
   column-gap: $space-24px;
   position: absolute;
-  bottom: 0;
-  left: 0;
+
+  @include tablet-and-up {
+    display: none;
+  }
+
+  &.active {
+    display: flex;
+
+    @include tablet-and-up {
+      display: none;
+    }
+  }
 }
 
-.cardContentOverlayIcons {
+#cardContentOverlayIcons {
   display: flex;
   flex-direction: row;
   column-gap: $space-16px;
   flex-grow: 1;
 }
 
-.cardContentOverlayText {
+#cardContentOverlayText {
   text-transform: uppercase;
   color: $color-grey-400;
 
   @include text-preset-3;
 }
 
-.cardContentText {
+#cardContentText {
   color: $color-grey-500;
 
   @include text-preset-2;
 }
 
-.cardContentTitle {
+#cardContentTitle {
   color: $color-grey-900;
 
   @include text-preset-1;
+}
+
+.invert {
+  filter: invert(100%) brightness(1000%);
+}
+
+.overlayIcon {
+  cursor: pointer;
+
+  &:hover {
+    filter: invert(100%) brightness(50%);
+  }
 }

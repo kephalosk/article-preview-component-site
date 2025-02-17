@@ -277,14 +277,14 @@ h1, p {
   }
 }
 
-#cardContentOverlayIcons {
+.cardContentOverlayIcons {
   display: flex;
   flex-direction: row;
   column-gap: $space-16px;
   flex-grow: 1;
 }
 
-#cardContentOverlayText {
+.cardContentOverlayText {
   text-transform: uppercase;
   color: $color-grey-400;
 

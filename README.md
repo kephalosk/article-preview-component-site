@@ -17,19 +17,19 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 
 Desktop
 
-![Desktop](screenshots/desktop.png)
+![Desktop](ressources/screenshots/desktop.png)
 
 Tablet
 
-![Mobile](screenshots/tablet.png)
+![Mobile](ressources/screenshots/tablet.png)
 
 Mobile
 
-![Mobile](screenshots/mobile.png)
+![Mobile](ressources/screenshots/mobile.png)
 
 Mobile Active
 
-![Mobile](screenshots/mobile_active.png)
+![Mobile](ressources/screenshots/mobile_active.png)
 
 ### Links
 

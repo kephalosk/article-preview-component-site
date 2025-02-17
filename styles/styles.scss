@@ -6,6 +6,7 @@ $color-grey-500: #6E8098;
 $color-grey-400: #9DAEC2;
 $color-grey-200: #ECF2F8;
 
+$space-4px: functions.to-rem(4px);
 $space-16px: functions.to-rem(16px);
 $space-24px: functions.to-rem(24px);
 $space-32px: functions.to-rem(32px);
@@ -20,6 +21,7 @@ $radius-10px: functions.to-rem(10px);
 
 $phone-width: functions.to-rem(600px);
 $tablet-width: functions.to-rem(960px);
+$max-content-width: functions.to-rem(730px);
 
 @mixin tablet-and-up {
   @media (min-width: $phone-width) {
@@ -86,4 +88,145 @@ h1, p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.card {
+  box-shadow: 0 20px 60px -30px rgb($color-grey-900, 0.8);
+  border-radius: $radius-10px;
+  max-width: $max-content-width;
+  display: grid;
+  grid-template-rows: fit-content(100%) fit-content(100%);
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.cardImage {
+  border-radius: $radius-10px $radius-10px 0 0;
+  height: 100%;
+}
+
+.cardContent {
+  border-radius: 0 0 $radius-10px $radius-10px;
+  background-color: $color-white;
+  padding: $space-32px;
+  display: flex;
+  flex-direction: column;
+  row-gap: $space-24px;
+  position: relative;
+}
+
+.cardContentBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cardContentBarButton {
+  height: functions.to-rem(32px);
+  width: functions.to-rem(32px);
+  position: relative;
+}
+.cardContentBarButton.invert {
+  filter: invert(100%);
+}
+
+.cardContentBarButtonOverlay {
+  border-radius: $radius-10px;
+  background-color: $color-grey-900;
+  padding: $space-16px $space-32px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $space-24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.cardContentBarButtonOverlay {
+  border-radius: $radius-10px;
+  background-color: $color-grey-900;
+  padding: $space-16px $space-32px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $space-24px;
+  position: absolute;
+  transform: translate(50%, calc(50% - 100px));
+}
+
+.cardContentBarButtonOverlayTriangle {
+  width: 100px;
+  height: 100px;
+  background-color: $color-grey-900;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  position: absolute;
+}
+
+.cardContentBarImage {
+  border-radius: 100%;
+  height: functions.to-rem(40px);
+  width: functions.to-rem(40px);
+}
+
+.cardContentBarInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: $space-4px;
+  flex-grow: 1;
+}
+
+.cardContentBarInfoDate {
+  color: $color-grey-400;
+
+  @include text-preset-2;
+}
+
+.cardContentBarInfoName {
+  color: $color-grey-900;
+
+  @include text-preset-2-bold;
+}
+
+.cardContentOverlay {
+  border-radius: 0 0 $radius-10px $radius-10px;
+  background-color: $color-grey-900;
+  padding: $space-32px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: $space-24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.cardContentOverlayIcons {
+  display: flex;
+  flex-direction: row;
+  column-gap: $space-16px;
+  flex-grow: 1;
+}
+
+.cardContentOverlayText {
+  text-transform: uppercase;
+  color: $color-grey-400;
+
+  @include text-preset-3;
+}
+
+.cardContentText {
+  color: $color-grey-500;
+
+  @include text-preset-2;
+}
+
+.cardContentTitle {
+  color: $color-grey-900;
+
+  @include text-preset-1;
 }
